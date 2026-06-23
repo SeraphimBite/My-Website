@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JadeOS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64px.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32px.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16px.png">
+</head>
+<body>
+<header class="menu-bar">
+  <span class="apple-logo-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Apple_Computer_Logo_rainbow.svg" 
+         style="height:20px; cursor: pointer;" 
+         title="Jade Computer" onclick="toggleAppleMenu()">
+  </span>
+  <span>File</span>
+  <span>Edit</span>
+  <span>View</span>
+  <span>Special</span>
+</header>
+
+<!-- Apple Menu -->
+<div class="apple-menu" id="appleMenu" style="display:none;">
+  <div class="apple-menu-content">
+    
+    <div class="menu-section">
+      <div class="menu-item" onclick="openAboutWindowDirect()">About This Computer...</div>
+      <div class="menu-separator"></div>
+      <div class="menu-item" onclick="openBlogWindow()">Blog</div>
+      <div class="menu-item" onclick="document.getElementById('softwareUpdateWindow').style.display='block'">Software Update...</div>
+      <div class="menu-separator"></div>
+      <div class="menu-item">Recent Items</div>
+      <div class="menu-item submenu">Applications ▶</div>
+      <div class="menu-item submenu">Documents ▶</div>
+      <div class="menu-item submenu">Servers ▶</div>
+    </div>
+  </div>
+</div>
+
+<!-- Software Update Window -->
+<div id="softwareUpdateWindow" style="display:none;">
+  <div class="title-bar">
+    <span>Software Update</span>
+    <div class="win-buttons">
+      <div class="btn close" onclick="document.getElementById('softwareUpdateWindow').style.display='none'"></div>
+    </div>
+  </div>
+  <div class="content">
+    <img src="https://media1.tenor.com/m/thkrC7GatW0AAAAC/lain-serial-experiments-lain.gif" alt="Loading">
+    <p>They'll come in time...     You can follow it on the blog.
+    </p>
+  </div>
+</div>
+
+<!-- Blog Window -->
+<div class="window" id="blogWindow" style="display:none; top:100px; left:100px; width:650px; height:550px;">
+  <div class="title-bar">
+    <span>Blog - Jade Computer, Inc.</span>
+    <div class="win-buttons">
+      <div class="btn close" onclick="closeWindow('blogWindow')"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="blog-container">
+      <!-- Profile Section -->
+      <div class="profile-section">
+        <div class="profile-image">
+          <img src="https://i.pinimg.com/736x/d4/bc/45/d4bc45f1c59b99c805ce6a8fee6f448d.jpg" alt="Profile">
+        </div>
+        <div class="profile-info">
+          <h2 id="blogName">JadeOS</h2>
+          <p id="blogBio">Building JadeOS for my lovely girlfriend 💕</p>
+          <div class="social-links">
+            <a href="https://twitter.com/@Marietta_fofine" target="_blank" id="twitterLink">@Marietta_fofine</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Posts Section -->
+      <div class="posts-section">
+
+        <div class="post" id="post5">
+          <div class="post-header">
+            <span class="post-date">Mai 27, 2026</span>
+            <span class="post-time">21:33</span>
+          </div>
+          <div class="post-content">
+            <h3>Media Player update</h3>
+            <p>I updated Media Player to make it better, now it's called CD Player and will play some songs I choose instead of YouTube videos.</p>
+          </div>
+        </div>
+
+        <div class="post" id="post4">
+          <div class="post-header">
+            <span class="post-date">Mar 25, 2026</span>
+            <span class="post-time">14:32</span>
+          </div>
+          <div class="post-content">
+            <h3>JadeOS 1.2.1 Launched!</h3>
+            <p>Today we’ve released version 1.2.1, which includes improvements to the Media Player.</p>
+          </div>
+        </div>
+
+        <div class="post" id="post3">
+          <div class="post-header">
+            <span class="post-date">Mar 10, 2026</span>
+            <span class="post-time">09:15</span>
+          </div>
+          <div class="post-content">
+            <h3>New features coming soon...</h3>
+            <p>I’m working on a text editor in the style of WordPad 98 and a simple Snake game for the next update.</p>
+          </div>
+        </div>
+
+        <div class="post" id="post2">
+          <div class="post-header">
+            <span class="post-date">Mar 01, 2026</span>
+            <span class="post-time">22:47</span>
+          </div>
+          <div class="post-content">
+            <h3>JadeOS</h3>
+            <p>This project started out as a joke for my girlfriend.</p>
+          </div>
+        </div>
+
+        <div class="post" id="post1">
+          <div class="post-header">
+            <span class="post-date">Fev 28, 2026</span>
+            <span class="post-time">17:20</span>
+          </div>
+          <div class="post-content">
+            <h3>First commit!</h3>
+            <p>Today I made the first commit to JadeOS. It’s still pretty basic, but it already has the desktop; I got it working on her phone because she doesn’t have a computer yet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="icon" onclick="openJadetoshHD()">
+  <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer_cool-0.png">
+  <p>Jadetosh HD</p>
+</div>
+  <div class="icon" onclick="openArtworks()">
+    <img src="https://win98icons.alexmeub.com/icons/png/frame_web-0.png">
+    <p>Artworks</p>
+  </div>
+<div class="icon" onclick="openMusicPlayer()">
+  <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-3.png">
+  <p>CD Player</p>
+</div>
+  
+ <!-- Jadetosh HD -->
+<div class="window" id="jadetoshHDWindow" style="display:none; top:250px; left:200px; width:560px; height:480px;">
+  <div class="title-bar">
+    <span>Jadetosh HD</span>
+    <div class="win-buttons">
+      <div class="btn close" onclick="closeWindow('jadetoshHDWindow')"></div>
+    </div>
+  </div>
+  <div class="content">
+    <!-- MESMO CONTEÚDO DAS PASTAS ANTES -->
+    <div class="folder-grid">
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>Documents</p>
+      </div>
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>Pictures</p>
+      </div>
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>Downloads</p>
+      </div>
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>Games</p>
+      </div>
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>Programs</p>
+      </div>
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>Temp</p>
+      </div>
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>Backup</p>
+      </div>
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>System32</p>
+      </div>
+      <div class="folder-icon">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png">
+        <p>Misc</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Artworks Window -->
+  <div class="window" id="artworksWindow" style="display:none; top:150px; left:300px; width:700px; height:500px;">
+    <div class="title-bar">
+      <span>Artworks</span>
+      <div class="win-buttons">
+        <div class="btn close" onclick="closeWindow('artworksWindow')"></div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="gallery">
+        <div class="thumbnail" onclick="openFullscreen('https://media.discordapp.net/attachments/1390568356339384456/1486795584835817592/WhiteKuruminha.jpg?ex=6a129c0a&is=6a114a8a&hm=aaae3c313746aca069e1c799f0ebd76a33bc93da251d13d3ff79fbe1f201dcbf&format=webp', 'WhiteKuruminha.png')">
+          <img src="https://media.discordapp.net/attachments/1390568356339384456/1486795584835817592/WhiteKuruminha.jpg?ex=6a129c0a&is=6a114a8a&hm=aaae3c313746aca069e1c799f0ebd76a33bc93da251d13d3ff79fbe1f201dcbf&format=webp" alt="WhiteKuruminha.png">
+          <p>WhiteKuruminha.png</p>
+        </div>
+        <div class="thumbnail" onclick="openFullscreen('https://i.pinimg.com/736x/3f/8a/c6/3f8ac67863f41435f3a16b41844dd36a.jpg', 'No I’m not a cat.jpg')">
+          <img src="https://i.pinimg.com/736x/3f/8a/c6/3f8ac67863f41435f3a16b41844dd36a.jpg" alt="No I’m not a cat.jpg">
+          <p>No I’m not a cat</p>
+        </div>
+        <div class="thumbnail" onclick="openFullscreen('https://picsum.photos/800/600?random=3')">
+          <img src="https://picsum.photos/120/90?random=3" alt="pixelart.gif">
+          <p>pixelart.gif</p>
+        </div>
+        <div class="thumbnail" onclick="openFullscreen('https://picsum.photos/800/600?random=4')">
+          <img src="https://picsum.photos/120/90?random=4" alt="landscape.bmp">
+          <p>landscape.bmp</p>
+        </div>
+        <div class="thumbnail" onclick="openFullscreen('https://picsum.photos/800/600?random=5')">
+          <img src="https://picsum.photos/120/90?random=5" alt="portrait.jpg">
+          <p>portrait.jpg</p>
+        </div>
+        <div class="thumbnail" onclick="openFullscreen('https://picsum.photos/800/600?random=6')">
+          <img src="https://picsum.photos/120/90?random=6" alt="neon.png">
+          <p>neon.png</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Music Player -->
+<div class="window" id="musicPlayer" style="display:none; top:150px; left:200px; width:380px; height:135px;">
+  <div class="title-bar">
+    <span>CD Player</span>
+    <div class="win-buttons">
+      <div class="btn close" onclick="closeWindow('musicPlayer')"></div>
+    </div>
+  </div>
+  <div class="window-body" style="margin:0;">
+    <div style="display:flex;">
+      <!-- Album Art -->
+      <div class="cd-album-art">
+        <img src="https://i.pinimg.com/1200x/3b/9f/fc/3b9ffc904094902c0706a74c9acce47c.jpg" alt="Album">
+      </div>
+      
+      <!-- Player Right Side -->
+      <div class="cd-player-right">
+        <!-- Song Title -->
+        <div class="cd-song-title-box">
+          <div style="display:flex;">
+            <div class="cd-song-title-text">
+             <span id="songTitleContent">♫ JadeOS Theme - Unknown Artist</span>
+            </div>
+            <div class="cd-song-arrow" onclick="togglePlaylist()"></div>
+          </div>
+          <div id="playlistContainer" class="playlist-container">
+           <div id="playlistList"></div>
+          </div>
+        </div>
+
+        <!-- Seek Bar -->
+        <div class="cd-seeking">
+          <span class="cd-current-time">00:00</span>
+          <div class="cd-seek-slider"></div>
+          <span class="cd-total-time">3:45</span>
+        </div>
+        
+        <!-- Controls -->
+        <div class="cd-controls-table">
+          <div onclick="prevTrack()"><button class="cd-control-btn">◀</button></div>
+          <div onclick="playpauseTrack()"><button class="cd-control-btn">▶</button></div>
+          <div onclick="nextTrack()"><button class="cd-control-btn">▶</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Fullscreen Window -->
+  <div class="fullscreen-window" id="fullscreenWindow" style="display:none;">
+    <div class="fullscreen-title-bar">
+      <span id="fullscreenTitle">Image</span>
+      <div class="fullscreen-buttons">
+        <div class="btn fullscreen-close" onclick="closeFullscreen()"></div>
+      </div>
+    </div>
+    <div class="fullscreen-content">
+      <img id="fullscreenImage" src="" alt="">
+    </div>
+  </div>
+
+  <!-- About Window -->
+  <div class="window" id="aboutWindow" style="display:none;">
+    <div class="title-bar">
+      <span>About This Computer</span>
+      <div class="win-buttons">
+        <div class="btn close" onclick="closeWindow('aboutWindow')"></div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="top-section">
+        <img src="https://i.pinimg.com/736x/d9/3e/04/d93e04201808ad64b426696204d6ef59.jpg">
+        <h1>JadeOS 1.2</h1>
+      </div>
+      <div class="info">
+        <p><b>Version:</b> JadeOS 1.2.1</p>
+        <p><b>Built-in Memory:</b> 512 MB</p>
+        <p><b>Virtual Memory:</b> 513 MB used on untitled</p>
+        <p><b>Largest Unused Block:</b> 485.5 MB</p>
+        <p style="text-align:right; font-size:11px; letter-spacing:0.5px;">
+          ™ & © Jade Computer, Inc. 2006–2026
+        </p>
+      </div>
+      <div class="memory-box">
+        <div class="memory-label">JadeOS</div>
+        <div class="memory-bar">
+          <div class="memory-used"></div>
+        </div>
+        <div class="memory-value">34.1 MB</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome Window -->
+  <div class="window" id="welcomeWindow" style="display:block; top:280px; left:200px; width:420px; height:260px;">
+    <div class="title-bar">
+      <span>Welcome</span>
+      <div class="win-buttons">
+        <div class="btn close" onclick="closeWindow('welcomeWindow')"></div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="welcome-content">
+        <h2>Welcome to JadeOS 1.2</h2>
+        <p style="font-size: 13px; line-height: 1.4; margin: 12px 0;">
+          You've successfully booted into <b>JadeOS 1.2.1</b>.<br>
+          This is a project I made for my girlfriend; I'm still working on it and adding more cool things.
+        </p>
+        <div style="margin-top: 15px; font-size: 10px; color: #666; text-align: right;">
+          Jade Computer, Inc. © 2006–2026
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="yt-player" style="display:none;"></div>
+<script src="script.js"></script>
+</body>
+</html>
